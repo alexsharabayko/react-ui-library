@@ -1,0 +1,21 @@
+.btn {
+  display: flex;
+  align-items: center;
+  padding: 13px 14px;
+  background-color: var(--color-white);
+  color: var(--color-primary);
+  font-size: 14px;
+  line-height: 16.42px;
+  border: 1.2px solid var(--color-primary);
+  box-sizing: border-box;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+
+  :global {
+    .rc-icon {
+      width: 13px;
+      height: 13px;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+.rc-icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: var(--color-primary);
+  mask-size: 100% 100%;
+}
+
+.rc-icon-plus {
+  mask-image: url(./assets/icons/plus.svg);
+}
