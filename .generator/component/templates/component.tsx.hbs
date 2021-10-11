@@ -1,0 +1,18 @@
+import React, { ReactElement } from 'react';
+
+const css = require('./{{ properCase name }}.module.scss');
+
+export interface I{{properCase name}}Props {
+  title?: string;
+}
+
+/**
+* {{ titleCase name }} Component Description
+*/
+export const {{ properCase name }} = (props: I{{properCase name}}Props): ReactElement => {
+  return (
+    <div className={ css.{{ camelCase name}}Container }>
+      {props.title}
+    </div>
+  );
+};
