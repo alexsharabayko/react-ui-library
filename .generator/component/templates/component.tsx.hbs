@@ -1,6 +1,5 @@
 import React, { ReactElement } from 'react';
-
-const css = require('./{{ properCase name }}.module.scss');
+import css from './{{ kebabCase name }}.module.scss';
 
 export interface I{{properCase name}}Props {
   title?: string;
@@ -9,9 +8,9 @@ export interface I{{properCase name}}Props {
 /**
 * {{ titleCase name }} Component Description
 */
-export const {{ properCase name }} = (props: I{{properCase name}}Props): ReactElement => {
+export const {{ properCase name }} = ({ title }: I{{properCase name}}Props): ReactElement => {
   return (
-    <div className={ css.{{ camelCase name}}Container }>
+    <div>
       {props.title}
     </div>
   );
