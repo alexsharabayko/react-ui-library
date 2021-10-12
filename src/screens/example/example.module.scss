@@ -1,4 +1,38 @@
+.wrapper {
+    padding: 20px;
+}
+
 .table {
     width: 100%;
     border: none;
+
+    :global {
+        th {
+            padding-bottom: 20px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        td {
+            padding-bottom: 10px;
+        }
+    }
+}
+
+.filter-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2px;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: var(--color-gray);
+    }
+
+    &.selected {
+        background-color: var(--color-primary);
+        color: var(--color-white);
+    }
 }

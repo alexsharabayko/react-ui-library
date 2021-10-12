@@ -1,10 +1,6 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
+import { Example } from './screens/example/example.component';
+import './styles/index.scss';
 
-const App = (): ReactElement => {
-  return (
-    <div>Hello</div>
-  );
-};
-
-ReactDOM.render(<App/>, document.getElementById('root'));
+ReactDOM.render(<Example/>, document.getElementById('root'));

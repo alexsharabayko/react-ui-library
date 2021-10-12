@@ -39,8 +39,6 @@ export const Popup = ({ renderActivator, position, children }: PropsWithChildren
   }
 
   useGlobalEvent('click', (event: MouseEvent) => {
-    console.log(wrapperRef.current.contains(event.target as any));
-
     if (!wrapperRef.current.contains(event.target as any)) {
       setShow(false);
     }

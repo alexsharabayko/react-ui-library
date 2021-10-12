@@ -10,12 +10,13 @@ import { FilterLabels } from './componets/filter-labels.component';
 import { FilterBody } from './componets/filter-body.component';
 
 export interface IFilterProps {
+  onUpdate?: (selectedFilters: ISelectedFilters) => void;
 }
 
 /**
  * Filter Component Description
  */
-export const Filter = ({ children }: PropsWithChildren<IFilterProps>): ReactElement => {
+export const Filter = ({ onUpdate, children }: PropsWithChildren<IFilterProps>): ReactElement => {
   const [selectedFilters, setSelectedFilters] = useState<ISelectedFilters>({});
   const filterGroups = useChildrenProps<PropsWithChildren<IFilterGroup>>(children, FilterGroup);
   const filterGroupsWithItems = filterGroups.map<IFilterGroupWithItems>(filterGroup => {
@@ -44,12 +45,14 @@ export const Filter = ({ children }: PropsWithChildren<IFilterProps>): ReactElem
     }
 
     setSelectedFilters(selectedFiltersCopy);
+    onUpdate && onUpdate(selectedFiltersCopy);
   };
 
   const clearCriteria = (criteria: string) => {
     const selectedFiltersCopy = { ...selectedFilters };
     delete selectedFiltersCopy[criteria];
     setSelectedFilters(selectedFiltersCopy);
+    onUpdate && onUpdate(selectedFiltersCopy);
   };
 
   return (
