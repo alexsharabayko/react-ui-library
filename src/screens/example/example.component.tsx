@@ -14,7 +14,7 @@ export interface IExampleProps {
  * Example Component Description
  */
 export const Example = ({}: IExampleProps): ReactElement => {
-  const [selectedFilters, setSelectedFilters] = useState<ISelectedFilters>({});
+  const [selectedFilters, setSelectedFilters] = useState<ISelectedFilters>({ userId: ['2'] });
   const criteria = Object.keys(selectedFilters);
   console.log(criteria);
   const filteredTasks = TASKS.filter(task => {
@@ -27,7 +27,7 @@ export const Example = ({}: IExampleProps): ReactElement => {
         <h1 className="rc-m-b-15">Tasks</h1>
 
         <div>
-          <Filter onUpdate={setSelectedFilters}>
+          <Filter onUpdate={setSelectedFilters} selectedFilters={selectedFilters}>
             <FilterGroup criteria="userId" title="Users" multiple={true}>
               {USERS.map(user => {
                 return (

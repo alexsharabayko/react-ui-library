@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, ReactElement, useState } from 'react';
+import React, { PropsWithChildren, ReactElement, useEffect, useState } from 'react';
 import css from './filter.module.scss';
 import { Popup } from '../popup/popup.component';
 import { Button } from '../button/button.component';
@@ -11,12 +11,13 @@ import { FilterBody } from './componets/filter-body.component';
 
 export interface IFilterProps {
   onUpdate?: (selectedFilters: ISelectedFilters) => void;
+  selectedFilters?: ISelectedFilters;
 }
 
 /**
  * Filter Component Description
  */
-export const Filter = ({ onUpdate, children }: PropsWithChildren<IFilterProps>): ReactElement => {
+export const Filter = ({ onUpdate, selectedFilters: selectedFiltersProp = {}, children }: PropsWithChildren<IFilterProps>): ReactElement => {
   const [selectedFilters, setSelectedFilters] = useState<ISelectedFilters>({});
   const filterGroups = useChildrenProps<PropsWithChildren<IFilterGroup>>(children, FilterGroup);
   const filterGroupsWithItems = filterGroups.map<IFilterGroupWithItems>(filterGroup => {
@@ -25,6 +26,10 @@ export const Filter = ({ onUpdate, children }: PropsWithChildren<IFilterProps>):
       items: useChildrenProps<PropsWithChildren<IFilterItem>>(filterGroup.children, FilterItem),
     };
   });
+
+  useEffect(() => {
+    setSelectedFilters(selectedFiltersProp);
+  }, [selectedFiltersProp])
 
   const toggleCriteria = ({ criteria, multiple }: IFilterGroup, { value }: IFilterItem): void => {
     const selectedFiltersCopy = { ...selectedFilters };

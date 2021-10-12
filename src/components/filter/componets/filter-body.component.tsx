@@ -17,7 +17,7 @@ export interface IFilterBodyProps {
 export const FilterBody = ({ filterGroupsWithItems, selectedFilters, onToggle }: IFilterBodyProps): ReactElement => {
   return (
     <div className={css.content}>
-      <Tabs selectedValue="users">
+      <Tabs selectedValue={filterGroupsWithItems[0].criteria}>
         {filterGroupsWithItems.map(filterGroup => {
           return (
             <Tab key={filterGroup.criteria} value={filterGroup.criteria} title={filterGroup.title}>
