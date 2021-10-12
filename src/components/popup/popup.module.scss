@@ -1,0 +1,16 @@
+.popup {
+    position: absolute;
+
+    &.bottom {
+        padding-top: 10px;
+    }
+
+    &.right {
+        padding-left: 10px;
+    }
+}
+
+.content {
+    border: 1px solid rgba(248, 248, 248, 1);
+    box-shadow: 0 15px 35px 0 rgba(0, 0, 0, 0.1);
+}
