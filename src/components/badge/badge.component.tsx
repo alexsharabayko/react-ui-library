@@ -1,6 +1,5 @@
 import React, { PropsWithChildren, ReactElement } from 'react';
 import css from './badge.module.scss';
-import { on } from 'cluster';
 
 export interface IBadgeProps {
   icon?: string;
